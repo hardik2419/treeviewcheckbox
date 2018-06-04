@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="stylee.css">
 <p>Another version of the treeview without checkbox support is available on  
     <a href="css3-treeview.html" target="_blank">this page</a>.</p>
              
@@ -59,4 +60,18 @@
         </li>
     </ul>
 </div>
-<p> </p>c
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript">
+    $(".acidjs-css3-treeview").delegate("label input:checkbox", "change", function() {
+    var
+        checkbox = $(this),
+        nestedList = checkbox.parent().next().next(),
+        selectNestedListCheckbox = nestedList.find("label:not([for]) input:checkbox");
+ 
+    if(checkbox.is(":checked")) {
+        return selectNestedListCheckbox.prop("checked", true);
+    }
+    selectNestedListCheckbox.prop("checked", false);
+});
+
+</script>
